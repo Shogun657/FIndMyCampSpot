@@ -3,6 +3,9 @@
 (() => {
     'use strict'
 
+    // to enable displaying multiple file inputs in the new and edit forms to show up
+    bsCustomFileInput.init() 
+
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     const forms = document.querySelectorAll('.validated-form')
 
