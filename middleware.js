@@ -30,13 +30,15 @@ module.exports.validateCampground = (req, res, next) => {
     //     campground : Joi.object({
     //         title : Joi.string().required(),
     //         price : Joi.number().required().min(0),
-    //         image: Joi.string().required(),
+    //         images: Joi.string().required(),
     //         location : Joi.string().required(),
     //         description : Joi.string().required
     //     }).required()
     // })
-    const { error } = campgroundSchema.validate(req.body,req.file)
-    console.log(error);
+    console.log(typeof(req.body.campground.images))
+    console.log(typeof(req.body.campground.title));
+    const { error } = campgroundSchema.validate(req.body)
+    console.log(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(msg, 400);
